@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_LAV_03_27_FACTORY</CLSNAME>
+    <CLSNAME>ZCL_LAB_04_36_PHONE_53</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Clase abstracta</DESCRIPT>
+    <DESCRIPT>Phone composición</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

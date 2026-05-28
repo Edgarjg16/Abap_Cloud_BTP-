@@ -1,4 +1,4 @@
-CLASS zcl_lab_03_28_logistics DEFINITION INHERITING FROM zcl_lav_03_27_factory
+CLASS zcl_lab_03_28_logistics DEFINITION INHERITING FROM zcl_lab_03_27_factory_53
   PUBLIC
   FINAL
   CREATE PUBLIC .

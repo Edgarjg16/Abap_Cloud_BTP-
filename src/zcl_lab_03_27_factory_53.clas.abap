@@ -1,4 +1,4 @@
-CLASS zcl_lav_03_27_factory DEFINITION
+CLASS zcl_lab_03_27_factory_53 DEFINITION
   PUBLIC
 *  FINAL
   CREATE PUBLIC .
@@ -13,7 +13,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lav_03_27_factory IMPLEMENTATION.
+CLASS zcl_lab_03_27_factory_53 IMPLEMENTATION.
   METHOD merchandise_output.
     clear : rv_merchendise.
     rv_merchendise = 'merchandise_output'.

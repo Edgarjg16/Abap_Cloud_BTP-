@@ -69,20 +69,62 @@ CLASS zcl_lab_04_01_ejec_053 IMPLEMENTATION.
 *           lv_name = lo_college->student->get_name( ).
 *
 *           out->write( lv_name ).
+
 **********************************************************************
 *     Laboratorio 4 - 04 composición
 **********************************************************************
-    DATA : lo_screen TYPE REF TO zcl_lab_04_37_screen_53,
-           lo_phone TYPE REF TO zcl_lab_04_36_phone_53.
+*    DATA : lo_screen TYPE REF TO zcl_lab_04_37_screen_53,
+*           lo_phone TYPE REF TO zcl_lab_04_36_phone_53.
+*
+*           CREATE OBJECT lo_screen.
+*           lo_screen->set_screen_type( '3D' ).
+*
+*           CREATE OBJECT lo_phone
+*             EXPORTING
+*               io_screen = lo_screen.
+*
+*           out->write( lo_screen->get_screen_type( ) ).
 
-           CREATE OBJECT lo_screen.
-           lo_screen->set_screen_type( '3D' ).
+**********************************************************************
+*     Laboratorio 4 - 05 Multiples referencias
+**********************************************************************
+*    DATA : lo_price_1 TYPE REF TO zcl_lab_04_38_prod_price,
+*           lo_price_2 TYPE REF TO zcl_lab_04_38_prod_price.
+*
+*           lo_price_1 = NEW #(  ).
+**           lo_price_2 = NEW #(  ).
+*
+*           lo_price_2 = lo_price_1.
+*
+**           lo_price_1->price = 10.
+*           lo_price_2->price = 20.
+*
+*           out->write( lo_price_1->price ).
+*           out->write( lo_price_2->price ).
+**********************************************************************
+*     Laboratorio 4 - 06 Crear instancias de tipos distintos
+**********************************************************************
+*    DATA : lo_budget TYPE REF TO zcl_lab_04_39_budget_53.
+*
+*    lo_budget = NEW zcl_lab_04_40_actual_budget_53( ).
+*
+*    CREATE OBJECT lo_budget TYPE zcl_lab_04_40_actual_budget_53.
 
-           CREATE OBJECT lo_phone
-             EXPORTING
-               io_screen = lo_screen.
+**********************************************************************
+*     Laboratorio 4 - 07 Asignar instancias a la clase genérica Object
+**********************************************************************
+    DATA : lo_object TYPE REF TO object.
+    DATA : lv_headquarters TYPE string.
 
-           out->write( lo_screen->get_screen_type( ) ).
+    CREATE OBJECT lo_object TYPE zcl_lab_04_41_organization_53.
+
+    CALL METHOD lo_object->('SET_HEADQUARTERS')
+         EXPORTING iv_headquarters = 'Prueba Object'.
+
+
+    CALL METHOD lo_object->('GET_HEADQUARTERS') receiving rv_headquarters = lv_headquarters.
+
+    out->write( lv_headquarters ).
 
 
   ENDMETHOD.

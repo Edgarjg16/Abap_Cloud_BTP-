@@ -1,0 +1,15 @@
+CLASS zcl_lab_04_39_budget_53 DEFINITION abstract
+  PUBLIC
+*  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS : get_budget abstract RETURNING VALUE(rv_budget) TYPE string.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_lab_04_39_budget_53 IMPLEMENTATION.
+ENDCLASS.

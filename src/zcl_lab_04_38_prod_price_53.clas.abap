@@ -1,4 +1,4 @@
-CLASS zcl_lab_04_38_prod_price DEFINITION
+CLASS zcl_lab_04_38_prod_price_53 DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -11,5 +11,5 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_04_38_prod_price IMPLEMENTATION.
+CLASS zcl_lab_04_38_prod_price_53 IMPLEMENTATION.
 ENDCLASS.

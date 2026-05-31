@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_LAB_04_43_NAVIGATION</CLSNAME>
+    <CLSNAME>ZCL_LAB_04_45_CHROME_053</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Clase receptora</DESCRIPT>
+    <DESCRIPT>declaracion del metodo ON y su registro</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

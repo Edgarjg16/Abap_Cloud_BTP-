@@ -1,4 +1,4 @@
-CLASS zcl_lab_04_43_navigation DEFINITION
+CLASS zcl_lab_04_43_navigation_53 DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -19,7 +19,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_04_43_navigation IMPLEMENTATION.
+CLASS zcl_lab_04_43_navigation_53 IMPLEMENTATION.
   METHOD on_touch_screen.
     log = |Screen { sender->screen_type }, Horizontal: { ev_horizontal }, Vertical: { ev_vertical }|.
   ENDMETHOD.

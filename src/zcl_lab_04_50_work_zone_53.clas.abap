@@ -1,0 +1,18 @@
+CLASS zcl_lab_04_50_work_zone_53 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC
+  GLOBAL FRIENDS zcl_lab_04_51_wz_friend_53.
+
+  PUBLIC SECTION.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+    DATA : "SET_WORK_ZONE TYPE ty_work_zone,
+           mo_helper TYPE REF TO lcl_helper.
+ENDCLASS.
+
+
+
+CLASS zcl_lab_04_50_work_zone_53 IMPLEMENTATION.
+ENDCLASS.

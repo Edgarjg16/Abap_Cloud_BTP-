@@ -1,4 +1,4 @@
-CLASS zcl_lab_02_10_constructor DEFINITION
+CLASS zcl_lab_02_10_constructor_53 DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -19,7 +19,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_02_10_constructor IMPLEMENTATION.
+CLASS zcl_lab_02_10_constructor_53 IMPLEMENTATION.
   METHOD constructor.
     me->codigo_id = iv_codigo.
     log = |{ log }-Method Constructor Instancia { codigo_id }-->|.

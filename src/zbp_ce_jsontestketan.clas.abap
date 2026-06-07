@@ -1,0 +1,5 @@
+CLASS zbp_ce_jsontestketan DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zce_jsontestketan.
+ENDCLASS.
+
+CLASS zbp_ce_jsontestketan IMPLEMENTATION.
+ENDCLASS.

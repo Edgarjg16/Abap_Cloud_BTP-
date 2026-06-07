@@ -13,8 +13,6 @@ ENDCLASS.
 
 
 CLASS zcl_lab_05_51_ejec_53 IMPLEMENTATION.
-
-
   METHOD if_oo_adt_classrun~main.
 **********************************************************************
 * Laboratorio Excepciones Ejercicio 7 Estructura de control CLEANUP
@@ -66,18 +64,62 @@ CLASS zcl_lab_05_51_ejec_53 IMPLEMENTATION.
 **********************************************************************
 * Lab Excepciones Ejercicio 9 Asignaciones de excepciones unas a otras
 **********************************************************************
-    DATA(lo_analyze) = NEW zcl_lab_05_58_date_analyzer_53( ).
+*    DATA(lo_analyze) = NEW zcl_lab_05_58_date_analyzer_53( ).
+*
+*
+*    TRY.
+*        TRY.
+*             lo_analyze->analyze_date( iv_date = '2024-02-30' ).
+*                CATCH zcx_lab_05_56_no_date_53 INTO DATA(lx_invalid).
+*                    out->write( lx_invalid->get_text( ) ).
+*        ENDTRY.
+*
+*        CATCH zcx_lab_05_56_no_date_53 INTO DATA(lx_invalid_2).
+*            out->write( lx_invalid_2->get_text( ) ).
+*    ENDTRY.
+**********************************************************************
+* Lab Patrón de diseño Ejercicio 1 SINGLETON
+**********************************************************************
+*    DATA : lo_singleton1 TYPE REF TO zcl_lab_05_62_context_53,
+*           lo_singleton2 TYPE REF TO zcl_lab_05_62_context_53.
+*
+*           lo_singleton1 = zcl_lab_05_62_context_53=>get_instance( ).
+*           lo_singleton2 = zcl_lab_05_62_context_53=>get_instance( ).
+*
+*           IF lo_singleton1 = lo_singleton2.
+*                out->write( 'Mantienen la misma Instancia' ).
+*           ELSE.
+*                out->write( 'Diferentes Instancias' ).
+*           ENDIF..
 
+**********************************************************************
+* Lab Patrón de diseño Ejercicio 2 FACTORY METHOD
+**********************************************************************
+*   DATA lo_file TYPE REF TO zif_lab_05_06_file_53.
+*
+*    lo_file = zcl_lab_05_65_factory_53=>create_file_type( iv_file_type = 'WORK' ).
+*    out->write( lo_file->get_file_type( ) ).
+*
+*    lo_file = zcl_lab_05_65_factory_53=>create_file_type( iv_file_type = 'SUPPLY' ).
+*    out->write( lo_file->get_file_type( ) ).
 
-    TRY.
-        TRY.
-             lo_analyze->analyze_date( iv_date = '2024-02-30' ).
-                CATCH zcx_lab_05_56_no_date_53 INTO DATA(lx_invalid).
-                    out->write( lx_invalid->get_text( ) ).
-        ENDTRY.
+**********************************************************************
+* Lab Patrón de diseño Ejercicio 3 TEMPLATE METHOD
+**********************************************************************
+    DATA : lo_travel TYPE REF TO zcl_lab_05_66_travel_53.
 
-        CATCH zcx_lab_05_56_no_date_53 INTO DATA(lx_invalid_2).
-            out->write( lx_invalid_2->get_text( ) ).
-    ENDTRY.
-  ENDMETHOD.
+    out->write( 'Inicio' ).
+
+    CREATE OBJECT lo_travel TYPE zcl_lab_05_67_package_a_53.
+    out->write( 'Package A...' ).
+    lo_travel->travel( io_out =  out ).
+
+    CREATE OBJECT lo_travel TYPE zcl_lab_05_68_package_b_53.
+    out->write( 'Package B...' ).
+    lo_travel->travel( io_out =  out ).
+
+    out->write( 'Fin' ).
+
+   ENDMETHOD.
 ENDCLASS.
+

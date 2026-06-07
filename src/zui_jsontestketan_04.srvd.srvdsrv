@@ -1,0 +1,4 @@
+@EndUserText.label: 'test'
+define service Zui_jsontestketan_04 {
+  expose ZCE_JSONTESTKETAN as ExternalPosts;
+}

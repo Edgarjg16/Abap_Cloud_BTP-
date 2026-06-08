@@ -106,19 +106,33 @@ CLASS zcl_lab_05_51_ejec_53 IMPLEMENTATION.
 **********************************************************************
 * Lab Patrón de diseño Ejercicio 3 TEMPLATE METHOD
 **********************************************************************
-    DATA : lo_travel TYPE REF TO zcl_lab_05_66_travel_53.
+*    DATA : lo_travel TYPE REF TO zcl_lab_05_66_travel_53.
+*
+*    out->write( 'Inicio' ).
+*
+*    CREATE OBJECT lo_travel TYPE zcl_lab_05_67_package_a_53.
+*    out->write( 'Package A...' ).
+*    lo_travel->travel( io_out =  out ).
+*
+*    CREATE OBJECT lo_travel TYPE zcl_lab_05_68_package_b_53.
+*    out->write( 'Package B...' ).
+*    lo_travel->travel( io_out =  out ).
+*
+*    out->write( 'Fin' ).
+**********************************************************************
+* Lab Patrón de diseño Ejercicio 4 Observers
+**********************************************************************
+    DATA(lo_blog) = NEW zcl_lab_05_69_blog_53(  ).
+    DATA(lo_admin) = NEW zcl_lab_05_71_administrator_53(  ).
+    DATA(lo_user) = NEW zcl_lab_05_72_users_53(  ).
 
-    out->write( 'Inicio' ).
+    SET HANDLER lo_admin->on_new_article FOR lo_blog.
+    SET HANDLER lo_user->on_new_article FOR lo_blog.
 
-    CREATE OBJECT lo_travel TYPE zcl_lab_05_67_package_a_53.
-    out->write( 'Package A...' ).
-    lo_travel->travel( io_out =  out ).
+    lo_blog->publica( iv_titulo = 'Nuevo articulo Fiori...' ).
 
-    CREATE OBJECT lo_travel TYPE zcl_lab_05_68_package_b_53.
-    out->write( 'Package B...' ).
-    lo_travel->travel( io_out =  out ).
-
-    out->write( 'Fin' ).
+    out->write( lo_admin->gv_notificacion ).
+    out->write( lo_user->gv_notificacion ).
 
    ENDMETHOD.
 ENDCLASS.

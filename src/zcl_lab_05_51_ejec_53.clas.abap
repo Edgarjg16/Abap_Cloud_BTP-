@@ -122,17 +122,34 @@ CLASS zcl_lab_05_51_ejec_53 IMPLEMENTATION.
 **********************************************************************
 * Lab Patrón de diseño Ejercicio 4 Observers
 **********************************************************************
-    DATA(lo_blog) = NEW zcl_lab_05_69_blog_53(  ).
-    DATA(lo_admin) = NEW zcl_lab_05_71_administrator_53(  ).
-    DATA(lo_user) = NEW zcl_lab_05_72_users_53(  ).
+*    DATA(lo_blog) = NEW zcl_lab_05_69_blog_53(  ).
+*    DATA(lo_admin) = NEW zcl_lab_05_71_administrator_53(  ).
+*    DATA(lo_user) = NEW zcl_lab_05_72_users_53(  ).
+*
+*    SET HANDLER lo_admin->on_new_article FOR lo_blog.
+*    SET HANDLER lo_user->on_new_article FOR lo_blog.
+*
+*    lo_blog->publica( iv_titulo = 'Nuevo articulo Fiori...' ).
+*
+*    out->write( lo_admin->gv_notificacion ).
+*    out->write( lo_user->gv_notificacion ).
 
-    SET HANDLER lo_admin->on_new_article FOR lo_blog.
-    SET HANDLER lo_user->on_new_article FOR lo_blog.
+**********************************************************************
+* Lab Patrón de diseño Ejercicio 5 MODEL-VIEW-CONTROLLER
+**********************************************************************
 
-    lo_blog->publica( iv_titulo = 'Nuevo articulo Fiori...' ).
+    DATA(lo_model) = NEW zcl_lab_73_05_model_53(  ).
+    DATA(lo_view) = NEW zcl_lab_05_74_view_53(  ).
+    DATA(lo_controller) = NEW zcl_lab_05_75_controller_53(  ).
 
-    out->write( lo_admin->gv_notificacion ).
-    out->write( lo_user->gv_notificacion ).
+
+    lo_controller->set_model( io_model = lo_model ).
+    lo_controller->set_view( io_view = lo_view ).
+
+    lo_controller->execute(
+      lv_carrier_id = 'LH'
+      io_out        = out
+    ).
 
    ENDMETHOD.
 ENDCLASS.

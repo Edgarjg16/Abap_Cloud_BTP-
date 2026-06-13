@@ -1,4 +1,4 @@
-interface ZCL_LAB_05_70_OBSERVER_53
-  public .
+INTERFACE zcl_lab_05_70_observer_53
+  PUBLIC .
 
-endinterface.
+ENDINTERFACE.

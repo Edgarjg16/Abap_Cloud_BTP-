@@ -2,7 +2,7 @@
 @EndUserText.label: 'Projection - Contract Type Interface'
 @Metadata.ignorePropagatedAnnotations: true
 define root view entity zi_cds_26_053
-provider contract transactional_interface
+  provider contract transactional_interface
   as projection on ZI_CDS_24_053
 {
   key TravelId,
@@ -23,6 +23,6 @@ provider contract transactional_interface
       Lastchangedat,
       /* Associations */
       _Agency,
-      _Booking,
+      _Booking : redirected to ZI_CDS_27_053,
       _Customer
 }

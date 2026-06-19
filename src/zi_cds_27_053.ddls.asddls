@@ -2,7 +2,6 @@
 @EndUserText.label: 'Projection - Child Interface'
 @Metadata.ignorePropagatedAnnotations: true
 define view entity ZI_CDS_27_053
-  provider contract transactional_interface
   as projection on ZI_CDS_25_053
 {
   key TravelId,
@@ -16,5 +15,5 @@ define view entity ZI_CDS_27_053
       FlightPrice,
       CurrencyCode,
       /* Associations */
-      _Travel
+      _Travel: redirected to parent zi_cds_26_053
 }

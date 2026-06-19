@@ -1,4 +1,4 @@
 @EndUserText.label: 'SD - Custom Entity'
 define service ZS_CDS_20_053 {
-  expose zi_cds_20_053 as Travrl;
+  expose zi_cds_20_053 as Travel;
 }

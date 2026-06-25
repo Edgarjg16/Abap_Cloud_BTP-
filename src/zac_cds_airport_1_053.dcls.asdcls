@@ -1,0 +1,7 @@
+@EndUserText.label: 'ZAC_CDS_AIRPORT_1_053'
+@MappingRole: true
+define role ZAC_CDS_AIRPORT_1_053 {
+    grant select on ZCDS_AIRPORT_1_053
+                    where Country = 'US';
+                        
+}

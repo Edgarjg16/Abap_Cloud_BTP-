@@ -1,0 +1,10 @@
+@EndUserText.label: 'Multiple Grant'
+@MappingRole: true
+define role ZAC_CDS_AIRPORT_2_053 {
+    grant select on ZCDS_AIRPORT_1_053
+                    where Country = 'US';
+
+    grant select on ZCDS_AIRPORT_2_053
+                    where country = 'US'
+                      OR country = 'DE';
+}

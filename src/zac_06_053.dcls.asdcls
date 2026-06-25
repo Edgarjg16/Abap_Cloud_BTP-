@@ -1,0 +1,7 @@
+@EndUserText.label: 'Restric Access'
+@MappingRole: true
+define role ZAC_06_053 {
+    grant select on zi_cds_37_053
+                    where false;
+                        
+}

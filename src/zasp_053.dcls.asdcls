@@ -1,0 +1,9 @@
+define accesspolicy ZASP_053 {
+    @EndUserText.label: 'Aspect 053'
+    define aspect ZASP_053 as
+        select from zi_cds_041_053 with user element UserId
+            {
+                InvoiceId 
+            }
+            
+}

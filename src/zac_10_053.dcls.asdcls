@@ -1,0 +1,7 @@
+@EndUserText.label: 'Custom Aspect'
+@MappingRole: true
+define role ZAC_10_053 {
+    grant select on zi_cds_42_053
+                    where (InvoiceId) = aspect ZASP_053;
+                        
+} 

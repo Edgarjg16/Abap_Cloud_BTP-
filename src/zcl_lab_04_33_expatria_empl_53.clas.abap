@@ -1,22 +1,13 @@
-CLASS zcl_lab_04_33_expatria_empl_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_33_EXPATRIA_EMPL_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-
-    INTERFACES zif_lab_04_32_employee_53 .
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_33_expatria_empl_53 IMPLEMENTATION.
-
-
-  METHOD zif_lab_04_32_employee_53~get_employees_count.
-    zif_lab_04_32_employee_53~l_cantidad = 200.
-    rv_detalle = |Empleados repatriados : { zif_lab_04_32_employee_53~l_cantidad }|.
-  ENDMETHOD.
+CLASS ZCL_LAB_04_33_EXPATRIA_EMPL_53 IMPLEMENTATION.
 ENDCLASS.

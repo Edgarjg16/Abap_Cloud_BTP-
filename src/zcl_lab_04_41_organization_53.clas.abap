@@ -1,25 +1,13 @@
-CLASS zcl_lab_04_41_organization_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_41_ORGANIZATION_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    METHODS : SET_HEADQUARTERS IMPORTING iv_headquarters TYPE string,
-              get_headquarters RETURNING VALUE(rv_headquarters) TYPE string.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
-    DATA : HEADQUARTERS TYPE string.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_41_organization_53 IMPLEMENTATION.
-  METHOD set_headquarters.
-    me->headquarters = iv_headquarters.
-  ENDMETHOD.
-
-  METHOD get_headquarters.
-    rv_headquarters = me->headquarters.
-  ENDMETHOD.
-
+CLASS ZCL_LAB_04_41_ORGANIZATION_53 IMPLEMENTATION.
 ENDCLASS.

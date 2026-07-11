@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "VAT by AirlineCode",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "scalarFunctionName": "ZSF_VAT_BY_AIRLINE_01_053",
+  "engine": "sqlEngine",
+  "sqlProperties": {
+    "amdpReference": "zcl_scalar_function=>vat_by_airline",
+    "autoExposedInSqlServices": false
+  }
+}

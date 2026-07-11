@@ -1,0 +1,3 @@
+define view entity buffer on zi_cds_024_053
+  layer core
+  type generic number of key elements 2 ;

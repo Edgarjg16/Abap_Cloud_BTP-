@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "referencia de implementación",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "scalarFunctionName": "ZSF_CALC_DISCOUNT_053",
+  "engine": "sqlEngine",
+  "sqlProperties": {
+    "amdpReference": "zcl_calc_discount_053=>get_discount",
+    "autoExposedInSqlServices": false
+  }
+}

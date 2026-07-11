@@ -1,13 +1,13 @@
-CLASS zcl_lab_02_21_classroom_53 DEFINITION
-  PUBLIC
-*  FINAL
-  CREATE PRIVATE.
+class ZCL_LAB_02_21_CLASSROOM_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zcl_lab_02_21_classroom_53 IMPLEMENTATION.
 
+
+CLASS ZCL_LAB_02_21_CLASSROOM_53 IMPLEMENTATION.
 ENDCLASS.

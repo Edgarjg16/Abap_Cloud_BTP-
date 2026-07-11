@@ -1,17 +1,13 @@
-CLASS zcl_lab_02_23_company_53 DEFINITION
-  PUBLIC
-*  FINAL
-  CREATE PUBLIC
-  GLOBAL FRIENDS ZCL_LAB_02_24_PARTNER_53.
-*                 zcl_lab_02_25_collaborator_53.
+class ZCL_LAB_02_23_COMPANY_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
-    DATA : capital TYPE p LENGTH 10 DECIMALS 2 VALUE 999.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_02_23_company_53 IMPLEMENTATION.
+CLASS ZCL_LAB_02_23_COMPANY_53 IMPLEMENTATION.
 ENDCLASS.

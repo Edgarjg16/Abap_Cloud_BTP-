@@ -1,22 +1,13 @@
-CLASS zcl_lab_04_32_internal_empl_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_32_INTERNAL_EMPL_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-
-    INTERFACES zif_lab_04_32_employee_53.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_32_internal_empl_53 IMPLEMENTATION.
-
-
-  METHOD zif_lab_04_32_employee_53~get_employees_count.
-    zif_lab_04_32_employee_53~l_cantidad = 100.
-    rv_detalle = |Empleados internos : { zif_lab_04_32_employee_53~l_cantidad }|.
-  ENDMETHOD.
+CLASS ZCL_LAB_04_32_INTERNAL_EMPL_53 IMPLEMENTATION.
 ENDCLASS.

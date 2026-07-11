@@ -1,20 +1,13 @@
-CLASS zcl_lab_02_22_student_53 DEFINITION INHERITING FROM zcl_lab_02_21_classroom_53
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_02_22_STUDENT_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    METHODS : assign_student.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_02_22_student_53 IMPLEMENTATION.
-
-  METHOD assign_student.
-    DATA(lo_class) = NEW zcl_lab_02_21_classroom_53( ).
-  ENDMETHOD.
-
+CLASS ZCL_LAB_02_22_STUDENT_53 IMPLEMENTATION.
 ENDCLASS.

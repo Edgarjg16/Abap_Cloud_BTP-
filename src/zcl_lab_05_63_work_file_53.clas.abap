@@ -1,19 +1,13 @@
-CLASS zcl_lab_05_63_work_file_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_05_63_WORK_FILE_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    INTERFACES : zif_lab_05_06_file_53.
-    ALIASES : get_file_type FOR zif_lab_05_06_file_53~get_file_type.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_05_63_work_file_53 IMPLEMENTATION.
-    METHOD get_file_type.
-        rv_file_type = 'WORK FILE'.
-    ENDMETHOD.
+CLASS ZCL_LAB_05_63_WORK_FILE_53 IMPLEMENTATION.
 ENDCLASS.

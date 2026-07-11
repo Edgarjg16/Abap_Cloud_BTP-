@@ -1,15 +1,13 @@
-CLASS zcl_lab_04_29_organization_53 DEFINITION ABSTRACT
-  PUBLIC
-*  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_29_ORGANIZATION_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    METHODS : get_location abstract RETURNING VALUE(rv_location) TYPE string.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_29_organization_53 IMPLEMENTATION.
+CLASS ZCL_LAB_04_29_ORGANIZATION_53 IMPLEMENTATION.
 ENDCLASS.

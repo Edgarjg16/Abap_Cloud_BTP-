@@ -1,0 +1,6 @@
+define scalar function zsf_book_price_c_02_053
+  with parameters
+    pCountryCode: abap.char( 3 ),
+    pBookingPrice: abap.curr( 16, 2 ) with reference type #CUKY
+  returns abap.curr( 16,2 )
+    with reference type of pBookingPrice;

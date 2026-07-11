@@ -1,19 +1,13 @@
-CLASS zcl_lab_04_40_actual_budget_53 DEFINITION INHERITING FROM zcl_lab_04_39_budget_53
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_40_ACTUAL_BUDGET_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    METHODS : get_budget REDEFINITION.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_40_actual_budget_53 IMPLEMENTATION.
-  METHOD get_budget.
-    rv_budget = '... tipos instancias..'.
-  ENDMETHOD.
-
+CLASS ZCL_LAB_04_40_ACTUAL_BUDGET_53 IMPLEMENTATION.
 ENDCLASS.

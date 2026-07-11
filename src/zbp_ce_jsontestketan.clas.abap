@@ -1,5 +1,13 @@
-CLASS zbp_ce_jsontestketan DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zce_jsontestketan.
+class ZBP_CE_JSONTESTKETAN definition
+  public
+  create private .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zbp_ce_jsontestketan IMPLEMENTATION.
+
+
+CLASS ZBP_CE_JSONTESTKETAN IMPLEMENTATION.
 ENDCLASS.

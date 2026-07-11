@@ -1,26 +1,13 @@
-CLASS zcl_priviledge_only DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_PRIVILEDGE_ONLY definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    INTERFACES : if_oo_adt_classrun.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_priviledge_only IMPLEMENTATION.
-  METHOD if_oo_adt_classrun~main.
-    SELECT from ZI_CDS_38_053 WITH PRIVILEGED ACCESS
-        FIELDS *
-        INTO TABLE @DATA(lt_results).
-        if  sy-subrc = 0.
-            out->write( lt_results ).
-        ELSE.
-            out->write(  'No data' ).
-        ENDIF.
-  ENDMETHOD.
-
+CLASS ZCL_PRIVILEDGE_ONLY IMPLEMENTATION.
 ENDCLASS.

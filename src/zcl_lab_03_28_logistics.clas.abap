@@ -1,14 +1,13 @@
-CLASS zcl_lab_03_28_logistics DEFINITION INHERITING FROM zcl_lab_03_27_factory_53
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_03_28_LOGISTICS definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_03_28_logistics IMPLEMENTATION.
+CLASS ZCL_LAB_03_28_LOGISTICS IMPLEMENTATION.
 ENDCLASS.

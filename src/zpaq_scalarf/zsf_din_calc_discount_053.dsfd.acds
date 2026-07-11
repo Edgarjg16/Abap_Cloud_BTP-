@@ -1,0 +1,17 @@
+define scalar function ZSF_DIN_CALC_DISCOUNT_053
+  with parameters
+    p1: numeric
+      with reference type [ #CUKY, #UNIT, #CaLC, #NONE ],
+    p2: numeric
+      with reference type [ #CUKY, #UNIT, #CaLC, #NONE ]
+    returns abap.dec( 16, 2 )
+    with reference type
+        case 
+            when p1:reference type of p2
+                then reference type of p2
+            
+            when p1:reference type of p1
+                then reference type of p1
+ 
+         else [ #NONE ]
+      end 

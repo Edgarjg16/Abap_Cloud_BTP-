@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Determination of Amount or Quantity",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "scalarFunctionName": "ZSF_03_AMOUNT_QTY_DET",
+  "engine": "sqlEngine",
+  "sqlProperties": {
+    "amdpReference": "zcl_scalar_function=>amount_qty_determination",
+    "autoExposedInSqlServices": false
+  }
+}

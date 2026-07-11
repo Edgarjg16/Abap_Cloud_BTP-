@@ -1,6 +1,4 @@
-INTERFACE zif_lab_04_32_employee_53
-  PUBLIC .
-    data l_cantidad type i.
+interface ZIF_LAB_04_32_EMPLOYEE_53
+  public .
 
-    METHODS GET_EMPLOYEES_COUNT RETURNING VALUE(rv_detalle) type string.
-ENDINTERFACE.
+endinterface.

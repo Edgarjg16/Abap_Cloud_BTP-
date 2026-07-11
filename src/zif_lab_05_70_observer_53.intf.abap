@@ -1,5 +1,4 @@
-INTERFACE zif_lab_05_70_observer_53
-  PUBLIC.
-    METHODS : notifica IMPORTING iv_titulo TYPE string.
+interface ZIF_LAB_05_70_OBSERVER_53
+  public .
 
-ENDINTERFACE.
+endinterface.

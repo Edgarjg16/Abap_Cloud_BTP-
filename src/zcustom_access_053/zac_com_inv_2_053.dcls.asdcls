@@ -1,0 +1,9 @@
+@EndUserText.label: 'Access Control Invoice User'
+@MappingRole: true
+define role ZAC_COM_INV_2_053 {
+    grant
+        select
+            on
+                zcds_com_inv_2_053
+                    where CreatedBy = $session.user;             
+}

@@ -1,21 +1,13 @@
-CLASS zcl_lab_05_59_calculator_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_05_59_CALCULATOR_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    METHODS : SUM_UP IMPORTING iv_ent1 TYPE I
-                               iv_ent2 TYPE I
-                               RETURNING VALUE(rv_sum_ent) TYPE I.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_05_59_calculator_53 IMPLEMENTATION.
-  METHOD sum_up.
-    rv_sum_ent = iv_ent1 + iv_ent2.
-  ENDMETHOD.
-
+CLASS ZCL_LAB_05_59_CALCULATOR_53 IMPLEMENTATION.
 ENDCLASS.

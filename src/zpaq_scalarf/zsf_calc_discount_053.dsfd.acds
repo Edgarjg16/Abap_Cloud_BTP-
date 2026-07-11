@@ -1,0 +1,7 @@
+define scalar function ZSF_CALC_DISCOUNT_053
+  with parameters
+    pClienteCucky: abap.cuky,
+    pDiscount    : abap.curr(16,2)
+      with reference type #CUKY
+  returns abap.curr(16,2)
+    with reference type of pDiscount

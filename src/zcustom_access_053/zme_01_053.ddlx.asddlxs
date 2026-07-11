@@ -1,0 +1,16 @@
+@Metadata.layer: #CORE
+annotate entity ZI_CDS_45_053
+    with 
+    parameters 
+    @EndUserText.label: 'Postal Code'
+        PpostalCode
+{
+    @UI.dataFieldDefault: [{ importance: #MEDIUM }]
+    @UI.lineItem:[{ position: 10, 
+                    type: #FOR_ACTION, dataAction: 'sendInvoiceToCustomer'}]
+    CustomerId;
+
+    @UI.dataFieldDefault: [{ importance: #MEDIUM }]
+    @UI.lineItem:[{ position: 20 }]
+    FirstName;
+}

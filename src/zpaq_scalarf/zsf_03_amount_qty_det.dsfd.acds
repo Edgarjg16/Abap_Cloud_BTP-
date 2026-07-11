@@ -1,0 +1,14 @@
+define scalar function ZSF_03_AMOUNT_QTY_DET
+  with parameters
+    p1: numeric
+      with reference type [ #CUKY, #UNIT, #CaLC, #NONE ],
+    p2: numeric
+      with reference type [ #CUKY, #UNIT, #CaLC, #NONE ]
+  returns abap.dec( 16, 2 )
+    with reference type
+      case
+        when p1: #CUKY then [ reference type of p1 ] 
+        when p1: [ reference type of p2, #CUKY ] and p2 : [ #CUKY ]
+                then [ reference type of p2 ]
+        else [ #NONE ]
+      end 

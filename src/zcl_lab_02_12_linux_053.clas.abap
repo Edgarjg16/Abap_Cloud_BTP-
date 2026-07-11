@@ -1,14 +1,13 @@
-CLASS zcl_lab_02_12_linux_053 DEFINITION INHERITING FROM zcl_lab_02_11_system_053
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_02_12_LINUX_053 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_02_12_linux_053 IMPLEMENTATION.
+CLASS ZCL_LAB_02_12_LINUX_053 IMPLEMENTATION.
 ENDCLASS.

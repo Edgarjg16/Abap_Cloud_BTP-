@@ -1,16 +1,13 @@
-CLASS zcl_lab_04_51_wz_friend_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_51_WZ_FRIEND_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-*    METHODS : GET_HELPER.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_51_wz_friend_53 IMPLEMENTATION.
-
+CLASS ZCL_LAB_04_51_WZ_FRIEND_53 IMPLEMENTATION.
 ENDCLASS.

@@ -1,49 +1,13 @@
-"! @testing zcl_lab_05_59_calculator_53
-CLASS zcl_lab_05_60_test_calc_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC
-  FOR TESTING
-  DURATION short
-  RISK LEVEL HARMLESS.
+class ZCL_LAB_05_60_TEST_CALC_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
-    DATA : mo_calcular TYPE REF TO zcl_lab_05_59_calculator_53.
-
-    METHODS : SETUP,
-              TEST_SUM_UP FOR TESTING.
-
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_05_60_test_calc_53 IMPLEMENTATION.
-  METHOD setup.
-    mo_calcular = NEW zcl_lab_05_59_calculator_53(  ).
-  ENDMETHOD.
-
-  METHOD test_sum_up.
-*   Test al metodo zcl_lab_05_59_calculator_53->sum_up
-    DATA(lv_result) = mo_calcular->sum_up(
-                        iv_ent1 = 1
-                        iv_ent2 = 2
-                      ).
-
-    cl_abap_unit_assert=>assert_equals(
-      EXPORTING
-        act                  = lv_result
-        exp                  = 3
-*        ignore_hash_sequence = abap_false
-*        tol                  =
-*        msg                  =
-*        level                = if_abap_unit_constant=>severity-medium
-*        quit                 = if_abap_unit_constant=>quit-test
-*      RECEIVING
-*        assertion_failed     =
-    ).
-
-  ENDMETHOD.
-
+CLASS ZCL_LAB_05_60_TEST_CALC_53 IMPLEMENTATION.
 ENDCLASS.

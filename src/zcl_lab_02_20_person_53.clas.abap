@@ -1,20 +1,13 @@
-CLASS zcl_lab_02_20_person_53 DEFINITION
-  PUBLIC
-*  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_02_20_PERSON_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  PROTECTED SECTION.
-    DATA : name TYPE string.
-    METHODS : set_name FINAL IMPORTING iv_name TYPE string.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_02_20_person_53 IMPLEMENTATION.
-  METHOD set_name.
-
-  ENDMETHOD.
-
+CLASS ZCL_LAB_02_20_PERSON_53 IMPLEMENTATION.
 ENDCLASS.

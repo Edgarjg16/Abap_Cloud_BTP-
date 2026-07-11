@@ -1,26 +1,13 @@
-CLASS zcl_lab_04_36_phone_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_36_PHONE_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  METHODS : constructor IMPORTING io_screen TYPE ref to zcl_lab_04_37_screen_53,
-            get_screen RETURNING VALUE(rv_screen) TYPE REF TO zcl_lab_04_37_screen_53.
-
-  PROTECTED SECTION.
-  PRIVATE SECTION.
-    DATA : screen TYPE REF TO zcl_lab_04_37_screen_53.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_36_phone_53 IMPLEMENTATION.
-  METHOD constructor.
-      me->screen  = io_screen.
-  ENDMETHOD.
-
-  METHOD get_screen.
-    rv_screen = me->screen.
-  ENDMETHOD.
-
+CLASS ZCL_LAB_04_36_PHONE_53 IMPLEMENTATION.
 ENDCLASS.

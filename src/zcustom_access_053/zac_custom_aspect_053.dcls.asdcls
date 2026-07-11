@@ -1,0 +1,10 @@
+@EndUserText.label: 'Custom Aspect User'
+@MappingRole: true
+define role ZAC_CUSTOM_ASPECT_053 {
+    grant
+        select
+            on
+                zcds_auditing_aspect_053
+                    where ( CreatedBy = $session.user
+                      AND InvAmount > 1000 );                                   
+}

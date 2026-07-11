@@ -1,36 +1,13 @@
-CLASS zcl_lab_04_44_operating_sys_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_44_OPERATING_SYS_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-
-    INTERFACES zif_lab_04_05_browser_53.
-
-  PROTECTED SECTION.
-    DATA log TYPE string.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_44_operating_sys_53 IMPLEMENTATION.
-  METHOD zif_lab_04_05_browser_53~mouse_movement.
-
-*   zif_lab_04_05_browser_53~set_log( '' ).
-
-     zif_lab_04_05_browser_53~set_log( 'Se define y levanta el evento : ' ).
-
-   RAISE EVENT zif_lab_04_05_browser_53~close_window.
-
-  ENDMETHOD.
-
-  METHOD zif_lab_04_05_browser_53~set_log.
-    log = iv_log.
-  ENDMETHOD.
-
-  METHOD zif_lab_04_05_browser_53~get_log.
-    rv_log = log.
-  ENDMETHOD.
-
+CLASS ZCL_LAB_04_44_OPERATING_SYS_53 IMPLEMENTATION.
 ENDCLASS.

@@ -1,132 +1,13 @@
-CLASS zcl_lab_04_01_ejec_053 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_01_EJEC_053 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-        INTERFACES if_oo_adt_classrun.
-
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_01_ejec_053 IMPLEMENTATION.
-  METHOD if_oo_adt_classrun~main.
-
-**********************************************************************
-*     Laboratorio 4 - 01 Polimorfismo con clases
-**********************************************************************
-*    DATA : gt_location TYPE STANDARD TABLE OF REF TO zcl_lab_04_29_organization_53,
-*           go_location TYPE ref to  zcl_lab_04_29_organization_53.
-**           go_org_germany TYPE REF TO zcl_lab_04_30_org_germany_53,
-**           go_org_france TYPE REF TO zcl_lab_04_31_org_france_53.
-*
-**           go_org_germany = NEW #(  ).
-**           APPEND go_org_germany TO gt_location.
-*
-**           go_org_france  = NEW #(  ).
-**           APPEND go_org_france TO gt_location.
-*
-**           LOOP AT gt_location into go_location.
-**            out->write( go_location->get_location( ) ).
-**           endloop.
-
-*            APPEND NEW zcl_lab_04_30_org_germany_53(  ) TO gt_location.
-*            APPEND NEW zcl_lab_04_31_org_france_53( ) TO gt_location.
-*
-*           LOOP AT gt_location into go_location.
-*             out->write( go_location->get_location( ) ).
-*           endloop.
-
-**********************************************************************
-*     Laboratorio 4 - 02 Polimorfismo con interfaces
-**********************************************************************
-*    DATA : gt_employs TYPE STANDARD TABLE OF REF TO zif_lab_04_32_employee_53,
-*           go_employs TYPE REF TO zif_lab_04_32_employee_53.
-*
-*           APPEND NEW zcl_lab_04_32_internal_empl_53(  ) TO gt_employs.
-*           APPEND NEW zcl_lab_33_expatriate_empl_53(  ) TO gt_employs.
-*
-*           LOOP AT gt_employs INTO go_employs.
-*                out->write( go_employs->get_employees_count( ) ).
-*           ENDLOOP..
-*
-**********************************************************************
-*     Laboratorio 4 - 03 Asociaciones
-**********************************************************************
-*    data : lo_student type REF TO zcl_lab_04_34_student_53,
-*           lo_college TYPE REF TO zcl_lab_04_35_college_53,
-*           lv_name TYPE string.
-*
-*           CREATE OBJECT lo_student.
-*           lo_student->set_name(  'Edgar....' ).
-*
-*           CREATE OBJECT lo_college.
-*           lo_college->enroll_student(  lo_student ).
-*
-*           lv_name = lo_college->student->get_name( ).
-*
-*           out->write( lv_name ).
-
-**********************************************************************
-*     Laboratorio 4 - 04 composición
-**********************************************************************
-*    DATA : lo_screen TYPE REF TO zcl_lab_04_37_screen_53,
-*           lo_phone TYPE REF TO zcl_lab_04_36_phone_53.
-*
-*           CREATE OBJECT lo_screen.
-*           lo_screen->set_screen_type( '3D' ).
-*
-*           CREATE OBJECT lo_phone
-*             EXPORTING
-*               io_screen = lo_screen.
-*
-*           out->write( lo_screen->get_screen_type( ) ).
-
-**********************************************************************
-*     Laboratorio 4 - 05 Multiples referencias
-**********************************************************************
-*    DATA : lo_price_1 TYPE REF TO zcl_lab_04_38_prod_price,
-*           lo_price_2 TYPE REF TO zcl_lab_04_38_prod_price.
-*
-*           lo_price_1 = NEW #(  ).
-**           lo_price_2 = NEW #(  ).
-*
-*           lo_price_2 = lo_price_1.
-*
-**           lo_price_1->price = 10.
-*           lo_price_2->price = 20.
-*
-*           out->write( lo_price_1->price ).
-*           out->write( lo_price_2->price ).
-**********************************************************************
-*     Laboratorio 4 - 06 Crear instancias de tipos distintos
-**********************************************************************
-*    DATA : lo_budget TYPE REF TO zcl_lab_04_39_budget_53.
-*
-*    lo_budget = NEW zcl_lab_04_40_actual_budget_53( ).
-*
-*    CREATE OBJECT lo_budget TYPE zcl_lab_04_40_actual_budget_53.
-
-**********************************************************************
-*     Laboratorio 4 - 07 Asignar instancias a la clase genérica Object
-**********************************************************************
-    DATA : lo_object TYPE REF TO object.
-    DATA : lv_headquarters TYPE string.
-
-    CREATE OBJECT lo_object TYPE zcl_lab_04_41_organization_53.
-
-    CALL METHOD lo_object->('SET_HEADQUARTERS')
-         EXPORTING iv_headquarters = 'Prueba Object'.
-
-
-    CALL METHOD lo_object->('GET_HEADQUARTERS') receiving rv_headquarters = lv_headquarters.
-
-    out->write( lv_headquarters ).
-
-
-  ENDMETHOD.
-
+CLASS ZCL_LAB_04_01_EJEC_053 IMPLEMENTATION.
 ENDCLASS.

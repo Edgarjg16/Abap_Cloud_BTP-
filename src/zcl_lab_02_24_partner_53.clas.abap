@@ -1,21 +1,13 @@
-CLASS zcl_lab_02_24_partner_53 DEFINITION
-  PUBLIC
-*  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_02_24_PARTNER_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    TYPES : ty_capital TYPE p length 10 DECIMALS 2.
-
-    METHODS : GET_COMPANY_CAPITAL RETURNING VALUE(rv_capital) TYPE ty_capital.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_02_24_partner_53 IMPLEMENTATION.
-  METHOD get_company_capital.
-    rv_capital = 1000.
-  ENDMETHOD.
-
+CLASS ZCL_LAB_02_24_PARTNER_53 IMPLEMENTATION.
 ENDCLASS.

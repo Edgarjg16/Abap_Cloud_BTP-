@@ -1,15 +1,13 @@
-CLASS zcl_patch_express_053 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_PATCH_EXPRESS_053 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    INTERFACES : if_oo_adt_classrun.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_patch_express_053 IMPLEMENTATION.
+CLASS ZCL_PATCH_EXPRESS_053 IMPLEMENTATION.
 ENDCLASS.

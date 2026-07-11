@@ -1,39 +1,13 @@
-CLASS zcl_lab_05_67_package_a_53 DEFINITION INHERITING FROM zcl_lab_05_66_travel_53
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_05_67_PACKAGE_A_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  PROTECTED SECTION.
-    METHODS: transport_oneway REDEFINITION,
-             day_one REDEFINITION,
-             day_two REDEFINITION,
-             day_three REDEFINITION,
-             transport_return REDEFINITION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_05_67_package_a_53 IMPLEMENTATION.
-  METHOD transport_oneway.
-    io_out->write( 'Package A - Transport oneway' ).
-  ENDMETHOD.
-
-  METHOD day_one.
-    io_out->write( 'Package A - One day' ).
-  ENDMETHOD.
-
-  METHOD day_two.
-    io_out->write( 'Package A - Two day' ).
-  ENDMETHOD.
-
-  METHOD day_three.
-    io_out->write( 'Package A - three day' ).
-  ENDMETHOD.
-
-  METHOD transport_return.
-    io_out->write( 'Package A - Transport return' ).
-  ENDMETHOD.
-
+CLASS ZCL_LAB_05_67_PACKAGE_A_53 IMPLEMENTATION.
 ENDCLASS.

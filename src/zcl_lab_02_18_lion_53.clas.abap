@@ -1,19 +1,13 @@
-CLASS zcl_lab_02_18_lion_53 DEFINITION INHERITING FROM zcl_lab_02_18_animal_53
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_02_18_LION_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    METHODS : walk REDEFINITION.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_02_18_lion_53 IMPLEMENTATION.
-  METHOD walk.
-    rv_cadena = 'El lion walk'.
-  ENDMETHOD.
-
+CLASS ZCL_LAB_02_18_LION_53 IMPLEMENTATION.
 ENDCLASS.

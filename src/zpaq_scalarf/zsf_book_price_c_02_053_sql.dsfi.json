@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Booking Price by Country Code",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "scalarFunctionName": "ZSF_BOOK_PRICE_C_02_053",
+  "engine": "sqlEngine",
+  "sqlProperties": {
+    "amdpReference": "zcl_scalar_function=>booking_price_by_country",
+    "autoExposedInSqlServices": false
+  }
+}

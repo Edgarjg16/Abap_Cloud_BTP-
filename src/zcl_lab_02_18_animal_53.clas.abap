@@ -1,19 +1,13 @@
-CLASS zcl_lab_02_18_animal_53 DEFINITION
-  PUBLIC
-*  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_02_18_ANIMAL_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    METHODS : walk  RETURNING VALUE(rv_cadena) TYPE string.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_02_18_animal_53 IMPLEMENTATION.
-  METHOD walk.
-    rv_cadena = 'El animal walk'.
-  ENDMETHOD.
-
+CLASS ZCL_LAB_02_18_ANIMAL_53 IMPLEMENTATION.
 ENDCLASS.

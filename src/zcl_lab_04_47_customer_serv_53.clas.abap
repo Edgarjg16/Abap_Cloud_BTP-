@@ -1,24 +1,13 @@
-CLASS zcl_lab_04_47_customer_serv_53 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_47_CUSTOMER_SERV_53 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    CLASS-DATA : gv_log TYPE string.
-
-    CLASS-METHODS : ON_NEW_CALL FOR EVENT new_call OF zcl_lab_04_46_mobile_oper_53
-            IMPORTING
-                    ev_phone_number.
-
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_lab_04_47_customer_serv_53 IMPLEMENTATION.
-  METHOD on_new_call.
-    gv_log = |Nueva llamada entrante : { ev_phone_number }|.
-  ENDMETHOD.
-
+CLASS ZCL_LAB_04_47_CUSTOMER_SERV_53 IMPLEMENTATION.
 ENDCLASS.

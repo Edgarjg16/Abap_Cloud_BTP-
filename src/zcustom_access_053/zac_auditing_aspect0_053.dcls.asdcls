@@ -1,0 +1,7 @@
+@EndUserText.label: 'Politica de Acceso Auditoria Usuari'
+@MappingRole: true
+define role ZAC_AUDITING_ASPECT0_053 {
+    grant select on zcds_auditing_aspect_053
+                    where ( CreatedBy = $session.user
+                      AND InvAmount > 1000 );                
+}

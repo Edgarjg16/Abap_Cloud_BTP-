@@ -1,0 +1,30 @@
+@Metadata.layer: #CORE
+annotate entity zcds_customer_meta_053 with
+{
+  @UI.lineItem: [
+    {
+      position: 10,
+      importance: #MEDIUM,
+      type: #FOR_ACTION, dataAction: 'get_customer'
+    }
+  ]
+//  @Consumption.valueHelpDefinition: [
+//    {
+//      entity: {
+//        name    : 'GET_CUSTOMER',
+//        element : 'CustomerID'
+//      }
+//    }
+//  ]
+  CustomerId;
+
+  @UI.lineItem: [
+    {
+      position: 20,
+      importance: #MEDIUM,
+      type: #FOR_ACTION, dataAction: 'get_customer'
+    }
+  ]
+  City;
+
+}

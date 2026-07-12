@@ -1,0 +1,2 @@
+@EndUserText.label: 'CDS Type'
+define type zty_cds_st_order_053 : abap.char(10);

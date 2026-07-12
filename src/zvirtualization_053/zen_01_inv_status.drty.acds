@@ -1,0 +1,20 @@
+@EndUserText.label: 'Invoice Status - Enum'
+define type ZEN_01_INV_STATUS: abap.char( 1 ) enum {
+    @EndUserText.label: 'Invoice - Draft | Initial '
+    Draft = initial;
+
+    @EndUserText.label: 'Invoice - Posted'
+    Posted = 'X';
+
+    @EndUserText.label: 'Invoice - Cancelled'
+    Cancelled = 'C';
+
+    @EndUserText.label: 'Invoice - Unpaid'
+    Unpaid = 'U';
+
+    @EndUserText.label: 'Invoice - Payed'
+    Payed = 'P';
+
+    @EndUserText.label: 'Invoice - Overdue'
+    Overdue = 'O';
+}

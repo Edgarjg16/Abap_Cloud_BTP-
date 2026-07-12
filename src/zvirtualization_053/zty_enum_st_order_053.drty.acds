@@ -1,0 +1,18 @@
+@EndUserText.label: 'Enum Type'
+define type zty_enum_st_order_053: abap.char( 2 ) enum {
+    @EndUserText.label: 'Pedido - Draft | Initial '
+    Draft = initial;
+    
+    @EndUserText.label: 'Pedido - Procesing '
+    processing  = '01';
+
+    @EndUserText.label: 'Pedido - Shipped '
+    shipped     = '02';
+
+    @EndUserText.label: 'Pedido - Delivered '
+    delivered   = '03';
+
+    @EndUserText.label: 'Pedido - Cancelled '
+    cancelled   = '04';
+
+    }

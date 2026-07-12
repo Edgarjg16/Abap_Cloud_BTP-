@@ -1,0 +1,8 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Invoice Status - Enum",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  }
+}

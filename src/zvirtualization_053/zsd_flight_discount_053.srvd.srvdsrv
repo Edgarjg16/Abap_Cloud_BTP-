@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition'
+define service Zsd_flight_discount_053 {
+  expose zcds_virtual_discount_053;
+  expose zcds_proj_virtual_disc_053;
+}

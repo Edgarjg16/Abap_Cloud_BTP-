@@ -1,0 +1,5 @@
+@EndUserText.label: 'Virtual Element'
+define service ZSD_CDS_56_053 {
+  expose ZI_CDS_56     as Booking;
+  expose ZI_CDS_57_053 as BookingBO;
+}

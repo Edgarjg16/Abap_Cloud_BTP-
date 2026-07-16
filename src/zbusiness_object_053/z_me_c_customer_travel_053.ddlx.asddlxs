@@ -1,0 +1,125 @@
+@Metadata.layer: #INDUSTRY
+@UI:{ headerInfo: { typeName: 'Customer',
+                    typeNamePlural: 'Customers',
+                    title: { type: #STANDARD,
+                             value: 'CustomerId'
+                           } 
+                   },
+                     presentationVariant: [ { sortOrder: 
+                                            [ { by : 'CustomerId',
+                                                direction: #ASC
+                                              } ]                 
+                                            } ]            
+   } 
+annotate entity Z_C_CUSTOMER_TRAVEL_053
+    with 
+{
+    @UI.facet: [{
+                  id : 'CustomerDetails',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Customer Details',
+                  position: 10
+                 }]
+
+    @UI: { lineItem: 
+                    [ 
+                        { 
+                        position: 10,
+                        importance: #HIGH,
+                        label: 'Customer ID'
+                        },
+                        { 
+                           type: #FOR_ACTION,
+                           dataAction: 'acceptCustomer',
+                           label: 'Accept Customer',
+                           position: 10
+                        },
+
+                        { 
+                           type: #FOR_ACTION,
+                           dataAction: 'rejectCustomer',
+                           label: 'Reject Customer',
+                           position: 20
+                        }
+                    ],
+                    selectionField: [{ position: 10 }],
+                    textArrangement: #TEXT_LAST,
+                    identification: [
+                                        { 
+                                           type: #FOR_ACTION,
+                                           dataAction: 'acceptCustomer',
+                                           label: 'Accept Customer',
+                                           position: 10
+                                        },
+
+                                        { 
+                                           type: #FOR_ACTION,
+                                           dataAction: 'rejectCustomer',
+                                           label: 'Reject Customer',
+                                           position: 20
+                                        }
+                                     ]                               
+        }   
+    
+    @Consumption.valueHelpDefinition: [{ entity: { 
+                                            name: '/DMO/I_Customer_StdVH',
+                                            element: 'LastName'
+                                                    }
+                                         }]
+    @Consumption.filter.mandatory: true
+    CustomerId;
+
+    @UI.facet: [{
+                  id : 'CustomerName',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Customer Name',
+                  position: 20
+                 }]
+
+    @UI: { lineItem: 
+                    [ { 
+                        position: 20,
+                        importance: #HIGH,
+                        label: 'Customer Name'
+                    } ]
+        }
+    LastName;    
+
+    @UI.facet: [{
+                  id : 'CustomerCountry',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Customer Country',
+                  position: 30
+                 }]
+
+    @UI: { lineItem: 
+                    [ { 
+                        position: 30,
+                        importance: #HIGH,
+                        label: 'Customer Country'
+                    } ]
+        }
+    countrycode;    
+
+    @UI.facet: [{
+                  id : 'Descripcion',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Descripcion',
+                  position: 40
+                 }]
+
+    @UI: { lineItem: 
+                    [ { 
+                        position: 40,
+                        importance: #HIGH,
+                        label: 'Descripcion'
+                    } ]
+        }
+    @UI.hidden: true
+    Descripcion;    
+
+}

@@ -29,7 +29,7 @@ define root view entity Z_R_TRAVEL_053
       @Semantics.user.createdBy: true
       local_created_by      as LocalCreatedBy,
       @Semantics.systemDateTime.createdAt: true
-      local_created_at      as LocalCreatedAt,
+      local_created_at      as LocalCreateAt,
       @Semantics.user.localInstanceLastChangedBy: true
       local_last_change_by  as LocalLastChangeBy,
       

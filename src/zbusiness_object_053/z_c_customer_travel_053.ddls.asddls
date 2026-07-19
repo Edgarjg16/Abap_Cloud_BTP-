@@ -11,7 +11,7 @@ define root view entity Z_C_CUSTOMER_TRAVEL_053
 {
     key CustomerUuid,
 
-    @ObjectModel.text.association: '_Customer'
+//    @ObjectModel.text.association: '_Customer'
     @Search.defaultSearchElement: true
     @Search.fuzzinessThreshold: 0.8
     @Search.ranking: #HIGH
@@ -19,6 +19,19 @@ define root view entity Z_C_CUSTOMER_TRAVEL_053
 
     @Search.defaultSearchElement: true
     Descripcion,
+    
+    @Search.defaultSearchElement: true
+    @Search.fuzzinessThreshold: 0.8
+    @Search.ranking: #MEDIUM    
+    FlightDate,
+    
+    @Semantics.amount.currencyCode: 'currencycode'
+    Price,
+    
+    CurrencyCode,
+    
+    OverallStatus,
+    
 
     @Search.defaultSearchElement: true
     _Customer.LastName,

@@ -121,5 +121,73 @@ annotate entity Z_C_CUSTOMER_TRAVEL_053
         }
     @UI.hidden: true
     Descripcion;    
+    
+    @UI.facet: [{
+                  id : 'Flight Date',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Descripcion',
+                  position: 50
+                 }]
+
+    @UI: { lineItem: 
+                    [ { 
+                        position:50,
+                        importance: #LOW,
+                        label: 'Flight Date'
+                    } ]
+        }
+    FlightDate;    
+
+    @UI.facet: [{
+                  id : 'Price',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Price',
+                  position: 60
+                 }]
+
+    @UI: { lineItem: 
+                    [ { 
+                        position:60,
+                        importance: #LOW,
+                        label: 'Price'
+                    } ]
+        }
+    Price;    
+
+    @UI.facet: [{
+                  id : 'CurrencyCode',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Currency Code',
+                  position: 70
+                 }]
+
+    @UI: { lineItem: 
+                    [ { 
+                        position:70,
+                        importance: #LOW,
+                        label: 'CurrencyCode'
+                    } ]
+        }
+    CurrencyCode;    
+
+    @UI.facet: [{
+                  id : 'OverallStatus',
+                  purpose: #STANDARD,
+                  type: #IDENTIFICATION_REFERENCE,
+                  label: 'Overall Status',
+                  position: 80
+                 }]
+
+    @UI: { lineItem: 
+                    [ { 
+                        position:80,
+                        importance: #LOW,
+                        label: 'Overall Status'
+                    } ]
+        }
+    OverallStatus;    
 
 }

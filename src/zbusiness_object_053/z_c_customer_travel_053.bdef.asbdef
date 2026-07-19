@@ -1,0 +1,19 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for Z_C_CUSTOMER_TRAVEL_053 //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action acceptCustomer;
+  use action rejectCustomer;
+
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+}

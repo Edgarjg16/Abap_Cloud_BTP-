@@ -58,9 +58,61 @@ CLASS lhc_Z_R_CUSTOMER_TRAVEL_053 IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_instance_authorizations.
+    DATA : update_request TYPE abap_bool,
+           update_granted TYPE abap_bool.
+
+    DATA(lv_technical_name) = cl_abap_context_info=>get_user_technical_name(  ).
+
+           READ ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
+                ENTITY CustomerTravel
+                FIELDS ( CustomerId )
+                WITH CORRESPONDING #(  keys )
+                RESULT DATA(Customers)
+                FAILED failed.
+
+           update_request = COND #( WHEN requested_authorizations-%update = if_abap_behv=>mk-on
+                                      OR requested_authorizations-%action-Edit = if_abap_behv=>mk-on
+                                        THEN abap_true
+                                        ELSE abap_false ).
+           CHECK update_request EQ abap_true.
+
+                LOOP AT Customers INTO DATA(Customer).
+                    IF lv_technical_name = 'CB998EEE141' AND Customer-CurrencyCode = 'USD'.
+                        update_granted = abap_false.
+                    ELSE.
+                        update_granted = abap_true.
+                    ENDIF.
+
+                    APPEND VALUE #( let apd_auth = COND #( WHEN update_granted EQ abap_true
+                                                                THEN if_abap_behv=>auth-allowed
+                                                                ELSE if_abap_behv=>auth-unauthorized
+                                                                ) IN
+                                    %tky = Customer-%tky
+                                    %update = if_abap_behv=>auth-allowed ) TO result.
+
+                ENDLOOP.
+
   ENDMETHOD.
 
   METHOD get_global_authorizations.
+    DATA(lv_technical_name) = cl_abap_context_info=>get_user_technical_name(  ).
+
+    if lv_technical_name EQ 'CB9980001920'.
+        IF requested_authorizations-%create EQ if_abap_behv=>mk-on
+            OR requested_authorizations-%update EQ if_abap_behv=>mk-on
+            OR requested_authorizations-%action-Edit EQ if_abap_behv=>mk-on
+            OR requested_authorizations-%delete EQ if_abap_behv=>mk-on.
+                result-%create = if_abap_behv=>auth-allowed.
+                result-%action-Edit = if_abap_behv=>auth-allowed.
+        ELSE.
+                result-%create = if_abap_behv=>auth-unauthorized.
+                result-%update = if_abap_behv=>auth-unauthorized.
+                result-%action-Edit = if_abap_behv=>auth-unauthorized.
+                result-%delete = if_abap_behv=>auth-unauthorized.
+        ENDIF.
+    endif.
+
+
   ENDMETHOD.
 
   METHOD acceptCustomer.

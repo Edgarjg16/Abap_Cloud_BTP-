@@ -63,55 +63,102 @@ CLASS lhc_Z_R_CUSTOMER_TRAVEL_053 IMPLEMENTATION.
 
     DATA(lv_technical_name) = cl_abap_context_info=>get_user_technical_name(  ).
 
-           READ ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
-                ENTITY CustomerTravel
-                FIELDS ( CustomerId )
-                WITH CORRESPONDING #(  keys )
-                RESULT DATA(Customers)
-                FAILED failed.
+    READ ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
+         ENTITY CustomerTravel
+         FIELDS ( CustomerId )
+         WITH CORRESPONDING #(  keys )
+         RESULT DATA(Customers)
+         FAILED failed.
 
-           update_request = COND #( WHEN requested_authorizations-%update = if_abap_behv=>mk-on
-                                      OR requested_authorizations-%action-Edit = if_abap_behv=>mk-on
-                                        THEN abap_true
-                                        ELSE abap_false ).
-           CHECK update_request EQ abap_true.
+    update_request = COND #( WHEN requested_authorizations-%update = if_abap_behv=>mk-on
+                               OR requested_authorizations-%action-Edit = if_abap_behv=>mk-on
+                                 THEN abap_true
+                                 ELSE abap_false ).
+    CHECK update_request EQ abap_true.
 
-                LOOP AT Customers INTO DATA(Customer).
-                    IF lv_technical_name = 'CB998EEE141' AND Customer-CurrencyCode = 'USD'.
-                        update_granted = abap_false.
-                    ELSE.
-                        update_granted = abap_true.
-                    ENDIF.
+        LOOP AT Customers INTO DATA(Customer).
+            update_granted = abap_true.
 
-                    APPEND VALUE #( let apd_auth = COND #( WHEN update_granted EQ abap_true
-                                                                THEN if_abap_behv=>auth-allowed
-                                                                ELSE if_abap_behv=>auth-unauthorized
-                                                                ) IN
-                                    %tky = Customer-%tky
-                                    %update = if_abap_behv=>auth-allowed ) TO result.
+            IF lv_technical_name = 'CB998EEE141' AND Customer-CurrencyCode = 'USD'.
+               update_granted = abap_false.
 
-                ENDLOOP.
+                APPEND VALUE #(
+                                %tky = Customer-%tky
+                                %state_area = 'VALIDATE_COMPONENT'
+                                %msg = new_message(
+                                                     id       = 'NOT_AUTHORIZED'
+                                                     number   = '002'
+                                                     severity = if_abap_behv_message=>severity-error
+                                                   )
+                                %element-CustomerId = if_abap_behv=>mk-on
+                               ) TO reported-customertravel.
+
+            ENDIF.
+
+            APPEND VALUE #( let apd_auth = COND #( WHEN update_granted EQ abap_true
+                                                        THEN if_abap_behv=>auth-allowed
+                                                        ELSE if_abap_behv=>auth-unauthorized
+                                                        ) IN
+                            %tky = Customer-%tky
+*                            %update = if_abap_behv=>auth-allowed ) TO result.
+                            %update = apd_auth
+                            %delete = apd_auth
+                            %action-edit = apd_auth ) TO result.
+        ENDLOOP.
 
   ENDMETHOD.
 
   METHOD get_global_authorizations.
     DATA(lv_technical_name) = cl_abap_context_info=>get_user_technical_name(  ).
 
-    if lv_technical_name EQ 'CB9980001920'.
-        IF requested_authorizations-%create EQ if_abap_behv=>mk-on
-            OR requested_authorizations-%update EQ if_abap_behv=>mk-on
-            OR requested_authorizations-%action-Edit EQ if_abap_behv=>mk-on
-            OR requested_authorizations-%delete EQ if_abap_behv=>mk-on.
-                result-%create = if_abap_behv=>auth-allowed.
-                result-%action-Edit = if_abap_behv=>auth-allowed.
-        ELSE.
-                result-%create = if_abap_behv=>auth-unauthorized.
-                result-%update = if_abap_behv=>auth-unauthorized.
-                result-%action-Edit = if_abap_behv=>auth-unauthorized.
-                result-%delete = if_abap_behv=>auth-unauthorized.
-        ENDIF.
-    endif.
+    IF lv_technical_name EQ 'CB9980001920'.
+        result-%create = if_abap_behv=>auth-allowed.
+        result-%update = if_abap_behv=>auth-allowed.
+        result-%delete = if_abap_behv=>auth-allowed.
+        result-%action-Edit = if_abap_behv=>auth-allowed.
+    ELSE.
+        result-%create = if_abap_behv=>auth-unauthorized.
+        result-%update = if_abap_behv=>auth-unauthorized.
+        result-%action-Edit = if_abap_behv=>auth-unauthorized.
+        result-%delete = if_abap_behv=>auth-unauthorized.
+    ENDIF.
 
+    IF requested_authorizations-%create EQ if_abap_behv=>mk-on.
+        APPEND VALUE #(
+                        %state_area = 'VALIDATE_COMPONENT'
+                        %msg = new_message(
+                                             id       = 'NOT_AUTHORIZED'
+                                             number   = '001'
+                                             severity = if_abap_behv_message=>severity-error
+                                           )
+                        %element-CustomerId = if_abap_behv=>mk-on
+                       ) TO reported-customertravel.
+    ENDIF.
+
+    IF requested_authorizations-%update EQ if_abap_behv=>mk-on
+       OR requested_authorizations-%action-Edit EQ if_abap_behv=>mk-on.
+        APPEND VALUE #(
+                        %state_area = 'VALIDATE_COMPONENT'
+                        %msg = new_message(
+                                             id       = 'NOT_AUTHORIZED'
+                                             number   = '002'
+                                             severity = if_abap_behv_message=>severity-error
+                                           )
+                        %element-CustomerId = if_abap_behv=>mk-on
+                       ) TO reported-customertravel.
+    ENDIF.
+
+    IF requested_authorizations-%delete EQ if_abap_behv=>mk-on.
+        APPEND VALUE #(
+                        %state_area = 'VALIDATE_COMPONENT'
+                        %msg = new_message(
+                                             id       = 'NOT_AUTHORIZED'
+                                             number   = '003'
+                                             severity = if_abap_behv_message=>severity-error
+                                           )
+                        %element-CustomerId = if_abap_behv=>mk-on
+                       ) TO reported-customertravel.
+    ENDIF.
 
   ENDMETHOD.
 
@@ -128,6 +175,29 @@ CLASS lhc_Z_R_CUSTOMER_TRAVEL_053 IMPLEMENTATION.
 
     LOOP AT lt_root_entity ASSIGNING FIELD-SYMBOL(<ls_root_entity>).
         lv_discount = keys[ key id %tky = <ls_root_entity>-%tky ]-%param-Discount_percent.
+
+*---------------------------------------------------------
+*       Validar porcentaje de descuento
+*---------------------------------------------------------
+        IF lv_discount < 0 OR lv_discount > 100.
+            APPEND VALUE #( %tky = <ls_root_entity>-%tky ) TO FAILED-customertravel.
+
+            APPEND VALUE #(
+                            %tky = <ls_root_entity>-%tky
+                            %state_area = 'VALIDATE_COMPONENT'
+                            %msg = new_message(
+                                                 id       = 'DISCOUNT_INVALID'
+                                                 number   = '001'
+                                                 severity = if_abap_behv_message=>severity-error
+                                                 v1       = lv_discount
+                                               )
+                            %element-CustomerId = if_abap_behv=>mk-on
+                           ) TO reported-customertravel.
+
+            CONTINUE.
+
+        ENDIF.
+
         lv_disc_percent = lv_discount / 100.
         <ls_root_entity>-Price = <ls_root_entity>-Price * (  1 - lv_disc_percent ).
         <ls_root_entity>-OverallStatus = overall_status-accepted.
@@ -184,6 +254,47 @@ CLASS lhc_Z_R_CUSTOMER_TRAVEL_053 IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD validateCustomer.
+    READ ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
+    ENTITY CustomerTravel
+    FIELDS ( CustomerUuid CustomerId )
+    WITH CORRESPONDING #( keys )
+    RESULT DATA(lt_customer).
+
+*   Si no hay datos, salir
+    IF lt_customer IS INITIAL.
+      RETURN.
+    ENDIF.
+
+*   Obtener todos los CustomerId existentes de una sola vez
+    SELECT customer_id
+      FROM zcustomers_053
+      FOR ALL ENTRIES IN @lt_customer
+      WHERE customer_id = @lt_customer-CustomerId
+      INTO TABLE @DATA(lt_customer_db).
+
+    SORT lt_customer_db BY customer_id.
+"   Validar cada registro
+    LOOP AT lt_customer INTO DATA(ls_customer).
+        READ TABLE lt_customer_db
+             WITH KEY customer_id = ls_customer-CustomerId
+                  TRANSPORTING NO FIELDS
+                  BINARY SEARCH.
+          IF sy-subrc EQ 0.
+            APPEND VALUE #(
+                            %tky = ls_customer-%tky
+                            %state_area = 'VALIDATE_COMPONENT'
+                            %msg = new_message(
+                                                 id       = 'ZMC_CUSTOMER'
+                                                 number   = '001'
+                                                 severity = if_abap_behv_message=>severity-error
+                                                 v1       = ls_customer-CustomerId
+                                               )
+                            %element-CustomerId = if_abap_behv=>mk-on
+                           ) TO reported-customertravel.
+          ENDIF.
+    ENDLOOP.
+
+
   ENDMETHOD.
 
   METHOD validateCustomerFormat.

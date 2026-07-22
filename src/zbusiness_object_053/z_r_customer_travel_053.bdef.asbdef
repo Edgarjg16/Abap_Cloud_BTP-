@@ -15,10 +15,10 @@ etag master LocalLastChangetAt
   delete;
   field ( readonly ) CustomerUuid;
   field ( numbering : managed ) CustomerUuid;
-  field ( mandatory ) CustomerId;
+  field ( mandatory ) CustomerId, CurrencyCode;
   field ( readonly ) Descripcion,
                      FlightDate,
-                     CurrencyCode,
+//                     CurrencyCode,
                      OverallStatus;
 
   field ( features : instance ) Price;
@@ -28,7 +28,8 @@ etag master LocalLastChangetAt
 
   action ( features : instance, authorization : update ) rejectCustomer result [1] $self;
 
-  validation validateCustomer on save { create; field CustomerId; }
+  validation validateCustomer on save { create; update; field CustomerId; }
+
   validation validateCustomerFormat on save { create; }
 
   determination setDescription on modify { create; field CustomerId; }

@@ -1,0 +1,57 @@
+managed implementation in class ZBP_R_CUSTOMERS2_053 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CUSTOMERS2_053 alias ZrCustomers2053
+persistent table ZCUSTOMERS2_053
+extensible
+draft table ZCSTOMERS2_053_D
+etag master LocalLastChangetAt
+lock master total etag LastChangetAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   CustomerID;
+
+  field ( readonly )
+   CustomerUUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangeBy,
+   LocalLastChangetAt,
+   LastChangetAt;
+
+  field ( numbering : managed )
+   CustomerUUID;
+
+  field ( readonly : update )
+   CustomerID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCUSTOMERS2_053 corresponding extensible
+  {
+    CustomerUUID = CUSTOMER_UUID;
+    CustomerID = CUSTOMER_ID;
+    Descripcion = DESCRIPCION;
+    FlightDate = FLIGHT_DATE;
+    Price = PRICE;
+    CurrencyCode = CURRENCY_CODE;
+    OverallStatus = OVERALL_STATUS;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangeBy = LOCAL_LAST_CHANGE_BY;
+    LocalLastChangetAt = LOCAL_LAST_CHANGET_AT;
+    LastChangetAt = LAST_CHANGET_AT;
+  }
+
+}

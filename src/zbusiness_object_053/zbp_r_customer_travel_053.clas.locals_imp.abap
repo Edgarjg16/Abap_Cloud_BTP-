@@ -25,6 +25,12 @@ CLASS lhc_Z_R_CUSTOMER_TRAVEL_053 DEFINITION INHERITING FROM cl_abap_behavior_ha
     METHODS setDescription FOR DETERMINE ON MODIFY
       IMPORTING keys FOR z_r_customer_travel_053~setDescription.
 
+    METHODS setStatus FOR DETERMINE ON MODIFY
+      IMPORTING keys FOR z_r_customer_travel_053~setStatus.
+
+    METHODS updateFlightDate FOR MODIFY
+      IMPORTING keys FOR ACTION CustomerTravel~updateFlightDate.
+
     METHODS validateCustomer FOR VALIDATE ON SAVE
       IMPORTING keys FOR z_r_customer_travel_053~validateCustomer.
 
@@ -251,6 +257,71 @@ CLASS lhc_Z_R_CUSTOMER_TRAVEL_053 IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD setDescription.
+    READ ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
+         ENTITY CustomerTravel
+         FIELDS ( Descripcion )
+         WITH CORRESPONDING #( keys )
+         RESULT DATA(lt_customer).
+
+         LOOP AT lt_customer ASSIGNING FIELD-SYMBOL(<fs_customer>).
+            IF <fs_customer>-Descripcion IS INITIAL.
+                <fs_customer>-Descripcion = 'Flight reason:'.
+            ELSEIF <fs_customer>-Descripcion NP 'Flight reason:*'.
+                <fs_customer>-Descripcion = |Flight reason: { <fs_customer>-Descripcion }|.
+            ENDIF.
+         ENDLOOP.
+
+         MODIFY ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
+                ENTITY CustomerTravel
+                UPDATE FIELDS ( Descripcion )
+                WITH VALUE #( FOR ls_customer IN lt_customer
+                                (
+                                %tky = ls_customer-%tky
+                                Descripcion = ls_customer-Descripcion )
+                            ).
+
+  ENDMETHOD.
+
+  METHOD setStatus.
+    READ ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
+         ENTITY CustomerTravel
+         FIELDS ( OverallStatus FlightDate )
+         WITH CORRESPONDING #( keys )
+         RESULT DATA(lt_customer).
+
+         MODIFY ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
+                ENTITY CustomerTravel
+                UPDATE FIELDS ( OverallStatus FlightDate )
+                WITH VALUE #( FOR ls_customer IN lt_customer
+                                (
+                                %tky = ls_customer-%tky
+                                OverallStatus = overall_Status-open
+                                FlightDate = ls_customer-FlightDate
+                                )
+                            ).
+
+         MODIFY ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
+                ENTITY CustomerTravel
+                  EXECUTE updateFlightDate
+                  FROM VALUE #(
+                    FOR key IN keys
+                    (
+                      %tky = key-%tky
+                    )
+                  ).
+
+  ENDMETHOD.
+
+  METHOD updateFlightDate.
+         MODIFY ENTITIES OF Z_R_CUSTOMER_TRAVEL_053 IN LOCAL MODE
+                ENTITY CustomerTravel
+                UPDATE FIELDS ( FlightDate )
+                WITH VALUE #( FOR key IN keys
+                                (
+                                %tky = key-%tky
+                                FlightDate = cl_abap_context_info=>get_system_date( )
+                                )
+                            ).
   ENDMETHOD.
 
   METHOD validateCustomer.

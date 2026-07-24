@@ -27,7 +27,12 @@ define root view entity Z_C_CUSTOMER_TRAVEL_053
     
     @Semantics.amount.currencyCode: 'currencycode'
     Price,
-    
+
+    @EndUserText.label: 'Vat Included'
+    @Semantics.amount.currencyCode: 'currencycode'
+    @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VIRT_EMEM_SADL_PRICE_053'
+    virtual PriceWithTax : /dmo/flight_price,
+
     CurrencyCode,
     
     OverallStatus,

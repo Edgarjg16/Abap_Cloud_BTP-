@@ -158,6 +158,15 @@ annotate entity Z_C_CUSTOMER_TRAVEL_053
         }
     Price;    
 
+    @UI: { lineItem: 
+                    [ { 
+                        position:61,
+                        importance: #MEDIUM,
+                        label: 'Flight price with taxes'
+                    } ]
+        }
+    PriceWithTax;    
+
     @UI.facet: [{
                   id : 'CurrencyCode',
                   purpose: #STANDARD,

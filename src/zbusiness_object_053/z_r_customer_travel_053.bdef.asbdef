@@ -16,9 +16,9 @@ etag master LocalLastChangetAt
   field ( readonly ) CustomerUuid;
   field ( numbering : managed ) CustomerUuid;
   field ( mandatory ) CustomerId, CurrencyCode;
-  field ( readonly ) Descripcion,
+  field ( readonly ) Descripcion;
+  field ( readonly : update )
                      FlightDate,
-//                     CurrencyCode,
                      OverallStatus;
 
   field ( features : instance ) Price;
@@ -34,9 +34,14 @@ etag master LocalLastChangetAt
 
   determination setDescription on modify { create; field CustomerId; }
 
+  determination setStatus on modify { create; }
+
+  internal action updateFlightDate;
+
   side effects
   {
     field CustomerId affects field Descripcion;
+    field OverallStatus affects field FlightDate;
   }
 
   draft action Resume;

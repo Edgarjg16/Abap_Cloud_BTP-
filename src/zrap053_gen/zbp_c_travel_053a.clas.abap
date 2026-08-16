@@ -1,8 +1,6 @@
 class ZBP_C_TRAVEL_053A definition
   public
-  abstract
-  final
-  for behavior of ZC_TRAVEL_053A .
+  create private .
 
 public section.
 protected section.

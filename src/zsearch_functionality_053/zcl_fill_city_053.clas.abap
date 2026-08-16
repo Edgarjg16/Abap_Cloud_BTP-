@@ -1,25 +1,13 @@
-CLASS zcl_fill_city_053 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_FILL_CITY_053 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    INTERFACES : if_oo_adt_classrun.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_fill_city_053 IMPLEMENTATION.
-  METHOD if_oo_adt_classrun~main.
-    DELETE FROM zcity_texts_053.
-
-    MODIFY zcity_texts_053 FROM ( select airport_id,
-                                         city FROM /dmo/airport ).
-
-    out->write( |Airport {  sy-dbcnt }  rows insert.| ).
-
-  ENDMETHOD.
-
+CLASS ZCL_FILL_CITY_053 IMPLEMENTATION.
 ENDCLASS.

@@ -1,5 +1,13 @@
-CLASS zbp_r_customer_travel_053 DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_r_customer_travel_053.
+class ZBP_R_CUSTOMER_TRAVEL_053 definition
+  public
+  create private .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zbp_r_customer_travel_053 IMPLEMENTATION.
+
+
+CLASS ZBP_R_CUSTOMER_TRAVEL_053 IMPLEMENTATION.
 ENDCLASS.

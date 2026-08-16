@@ -1,8 +1,6 @@
 class ZBP_R_CUSTOMERS2_053 definition
   public
-  abstract
-  final
-  for behavior of ZR_CUSTOMERS2_053 .
+  create private .
 
 public section.
 protected section.

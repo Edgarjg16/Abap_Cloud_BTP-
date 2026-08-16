@@ -1,32 +1,13 @@
-CLASS zcl_calc_discount_053 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_CALC_DISCOUNT_053 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    INTERFACES : if_amdp_marker_hdb.
-
-
-    CLASS-METHODS : get_discount FOR SCALAR FUNCTION ZSF_CALC_DISCOUNT_053.
-
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_calc_discount_053 IMPLEMENTATION.
-METHOD get_discount
-  BY DATABASE FUNCTION
-  FOR HDB
-  LANGUAGE SQLSCRIPT
-  OPTIONS READ-ONLY.
-
-  IF pClienteCucky = 'EUR' then
-    result = pClienteCucky * 0.90;
-  ELSE
-    result = pClienteCucky * 0.95;
-  END IF;
-
-ENDMETHOD.
+CLASS ZCL_CALC_DISCOUNT_053 IMPLEMENTATION.
 ENDCLASS.
